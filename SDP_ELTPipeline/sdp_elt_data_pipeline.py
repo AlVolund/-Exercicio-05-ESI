@@ -240,20 +240,7 @@ def load_raw_dataset(release_tag: str=None, code_metrics_data:list[dict]=None) -
     return dataset_file_path
 
 def tansform_raw_dataset(dataset_file_path: str=None) -> None:
-    """
-    Essa função aplica algumas transformações no arquivo CSV (dataset bruto) com o intuito de remover 
-    linhas que possuam as seguintes características:
-    (1) trazem informações de arquivos irrelevante para a tarefa de predição 
-    (e.g., arquivos de exemplos ou de documentação);
-    (2) trazem valores zerados para a maioria das métricas; e
-    (3) sejam valores muito fora do padrão (outliers).
-
-    Parameters:
-        dataset_file_path (str): O caminho para o dataset bruto gerado. Valor padrão None.
     
-    Returns:
-        transformed_file_path (str): O caminho para o dataset transformado.  
-    """
     transformed_file_path = dataset_file_path.replace("raw", "trf")
 
     import pandas as pd
@@ -273,9 +260,6 @@ def tansform_raw_dataset(dataset_file_path: str=None) -> None:
     transformed_file_path = dataset_file_path.replace("raw", "trf")
     df_filtered.to_csv(transformed_file_path, sep=';', index=False)
     
-    # Escreva seu código aqui. Use o pandas para fazer essa tarefa
-    # Ao final, salve as alterações em um arquivo como o neme contido em transformed_file_path 
-
     return transformed_file_path
 
 def start():
